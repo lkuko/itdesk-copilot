@@ -1,0 +1,8 @@
+{
+  "frozen_at": "2026-11-17T10:40:23.585130+00:00",
+  "datasets": {
+    "dev.json": "fd658c4da3fe08bde28896e7d6b4538fa6b6a412d2b004a0d6bd9d557e71c669",
+    "acceptance.json": "6fc46bf363ebca56068ee953c9c27e861089e9462fa85482756fde14db351709"
+  },
+  "scope": "Synthetic source-grounded cases authored before model output; AI-assisted labels"
+}

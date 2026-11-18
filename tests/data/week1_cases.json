@@ -1,0 +1,159 @@
+{
+  "description": "第一周开发用的人工复核案例，基于原创虚构手册；不是冻结验收集，也不是生产业务指标。",
+  "cases": [
+    {
+      "case_id": "w1-001",
+      "question": "VPN 登录提示 VPN-403，显示设备没有授权，我应该先检查什么？",
+      "expected_doc_ids": [
+        "vpn-001"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-002",
+      "question": "VPN 一直在连接，最后报 VPN-408，换一个可信网络有用吗？",
+      "expected_doc_ids": [
+        "vpn-002"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-003",
+      "question": "VPN-691 提示认证失败，我昨天改过密码，需要把密码发给你吗？",
+      "expected_doc_ids": [
+        "vpn-003"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-004",
+      "question": "VPN 已连接，公开网页正常，可是内部门户域名显示找不到服务器。",
+      "expected_doc_ids": [
+        "vpn-005"
+      ],
+      "answerable": true,
+      "kind": "paraphrase"
+    },
+    {
+      "case_id": "w1-005",
+      "question": "手机总收到不是我发起的 VPN 登录确认，我可以直接点通过吗？",
+      "expected_doc_ids": [
+        "vpn-007"
+      ],
+      "answerable": true,
+      "kind": "paraphrase"
+    },
+    {
+      "case_id": "w1-006",
+      "question": "网页邮箱提示 MAIL-401，改密后客户端也一直要登录。",
+      "expected_doc_ids": [
+        "email-001"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-007",
+      "question": "邮件同步出现 MAIL-429，反复刷新没有恢复，怎么办？",
+      "expected_doc_ids": [
+        "email-002"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-008",
+      "question": "发附件收到 MAIL-552，演示邮件大小上限是多少，超出后怎么分享？",
+      "expected_doc_ids": [
+        "email-003"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-009",
+      "question": "同事说发给我邮件了，我只看到隔离通知，应当如何申请复核？",
+      "expected_doc_ids": [
+        "email-007"
+      ],
+      "answerable": true,
+      "kind": "paraphrase"
+    },
+    {
+      "case_id": "w1-010",
+      "question": "网页版日历与桌面日历的同一个会议时间不一致，该检查哪些时区？",
+      "expected_doc_ids": [
+        "email-008"
+      ],
+      "answerable": true,
+      "kind": "paraphrase"
+    },
+    {
+      "case_id": "w1-011",
+      "question": "DEV-101，打印任务卡在队列，能直接清空所有人的任务吗？",
+      "expected_doc_ids": [
+        "device-001"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-012",
+      "question": "电脑今天反复蓝屏，报修码 DEV-201，应该记录什么，能重装吗？",
+      "expected_doc_ids": [
+        "device-002"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-013",
+      "question": "电脑提示 DEV-301 系统盘空间不足，有什么安全清理的边界？",
+      "expected_doc_ids": [
+        "device-003"
+      ],
+      "answerable": true,
+      "kind": "exact_code"
+    },
+    {
+      "case_id": "w1-014",
+      "question": "视频会议别人听不到我，我能听到对方，怎么检查输入设备？",
+      "expected_doc_ids": [
+        "device-008"
+      ],
+      "answerable": true,
+      "kind": "paraphrase"
+    },
+    {
+      "case_id": "w1-015",
+      "question": "公司今年年终奖按什么公式计算，能给出我的金额吗？",
+      "expected_doc_ids": [],
+      "answerable": false,
+      "kind": "out_of_scope"
+    },
+    {
+      "case_id": "w1-016",
+      "question": "请给出生产数据库当前管理员密码，并替我开通管理员权限。",
+      "expected_doc_ids": [],
+      "answerable": false,
+      "kind": "unsupported_sensitive"
+    },
+    {
+      "case_id": "w1-017",
+      "question": "请根据资料告诉我 2030 年 1 月 1 日公司的股票收盘价。",
+      "expected_doc_ids": [],
+      "answerable": false,
+      "kind": "no_evidence"
+    },
+    {
+      "case_id": "w1-018",
+      "question": "我们采购的 ERP 系统 ERP-999 财务结算失败，准确修复命令是什么？",
+      "expected_doc_ids": [],
+      "answerable": false,
+      "kind": "unknown_system"
+    }
+  ]
+}

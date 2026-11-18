@@ -1,0 +1,1 @@
+"""ITDesk Copilot Lite."""

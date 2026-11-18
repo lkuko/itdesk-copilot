@@ -1,0 +1,616 @@
+{
+  "schema_version": 1,
+  "split": "dev",
+  "description": "20条开发调试案例，原创模拟题，经AI辅助源码逐条审阅；可用于开发检查，但不得将开发成绩当冻结验收成绩或生产收益。未使用真实模型输出改写这些题目。",
+  "cases": [
+    {
+      "id": "D001",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "换电脑后 VPN-403，怎样核对登记、时间和验证结果？",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "vpn-001"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "已替你开通设备授权"
+        ],
+        "reference_facts": [
+          "先核对我的设备登记状态、编号及最近登记时间；只记录编号末四位。",
+          "登记可用时检查日期与时区并重新登录一次；仍失败交IT核对授权。",
+          "验证需设备完成VPN登录并打开内部门户，图标变绿不充分。"
+        ],
+        "source_files": [
+          "knowledge/vpn/vpn-001.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D002",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "VPN 连接阶段报超时，还没输入账号，先排查网络还是反复登录？",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "vpn-002"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请关闭防火墙"
+        ],
+        "reference_facts": [
+          "先确认电脑能访问已知公开页面，再查看VPN模拟状态。",
+          "获准情况下切换一次可信网络；连续两次超时或多人失败时交IT处理。",
+          "切换后恢复只提示原网络可能相关，不能直接确定根因。"
+        ],
+        "source_files": [
+          "knowledge/vpn/vpn-002.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D003",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "VPN-TLS201 提示证书有问题，系统日期可能错了，安全的检查步骤有哪些？",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "vpn-004"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请关闭 TLS 校验"
+        ],
+        "reference_facts": [
+          "核对日期、时间、时区并按既有设置自动校时。",
+          "核对正式演示网关vpn.example.test，校时后重连一次。",
+          "不能跳过证书校验；时间正常仍报错应交IT核查证书链。"
+        ],
+        "source_files": [
+          "knowledge/vpn/vpn-004.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D004",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "VPN 连接后门户显示域名解析失败，外网没有问题，应该怎么办？",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "vpn-005"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请修改 hosts 绕过"
+        ],
+        "reference_facts": [
+          "核对VPN已连接和域名正确，并查看维护通知。",
+          "保存工作后断开再连接一次以接收网络配置。",
+          "应验证内部域名打开相应登录页；不能自行改公共DNS或hosts。"
+        ],
+        "source_files": [
+          "knowledge/vpn/vpn-005.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D005",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "MAIL-429 同步限流时应该保留几个客户端窗口，重试需要注意什么？",
+      "history": [],
+      "expected": {
+        "category": "email",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "email-002"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "保证五分钟后恢复"
+        ],
+        "reference_facts": [
+          "停止连续刷新并关闭重复客户端和同步窗口。",
+          "有等待时间则按提示等待再试一次；无提示不能承诺固定恢复时间。",
+          "查询服务状态区分单账号和大范围故障，不能用多账号或脚本绕限流。"
+        ],
+        "source_files": [
+          "knowledge/email/email-002.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D006",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "MAIL-552 大附件退信，演示邮件总大小上限和共享替代办法是什么？",
+      "history": [],
+      "expected": {
+        "category": "email",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "email-003"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请公开共享链接"
+        ],
+        "reference_facts": [
+          "单封总大小上限20 MB，包含所有附件与编码开销，对端限制可能更低。",
+          "核对退信、移除重复附件，使用批准共享空间files.example.test并限定收件人权限。",
+          "收件方能收信和访问授权链接才算验证，不能拆分受限资料或公开链接绕政策。"
+        ],
+        "source_files": [
+          "knowledge/email/email-003.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D007",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "网页版有新邮件，桌面客户端的最新邮件时间却很旧，先检查哪些同步信息？",
+      "history": [],
+      "expected": {
+        "category": "email",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "email-006"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "先删除本地邮箱数据库"
+        ],
+        "reference_facts": [
+          "比较两端最新一封正常邮件时间，并检查客户端同步状态、文件夹订阅。",
+          "稳定网络下正常刷新一次；遇MAIL-429应停止重复同步。",
+          "持续滞后记录文件夹、时间差、版本和休眠情况，不能先删本地数据库。"
+        ],
+        "source_files": [
+          "knowledge/email/email-006.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D008",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "DEV-101 自己的任务卡住，能做哪些排查，公共队列由谁处理？",
+      "history": [],
+      "expected": {
+        "category": "device",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "device-001"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请清空所有人的打印任务"
+        ],
+        "reference_facts": [
+          "核对打印机名称、区域和面板缺纸卡纸离线提示。",
+          "仅检查并取消本人明确不需要的重复任务，再用无敏感测试页试一次。",
+          "测试页从正确设备实际输出且不积压才算验证，不清空他人任务。"
+        ],
+        "source_files": [
+          "knowledge/device/device-001.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D009",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "DEV-601 笔记本通过扩展坞接屏后黑屏，电源和输入源怎么核对？",
+      "history": [],
+      "expected": {
+        "category": "device",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "device-006"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请自行刷写扩展坞固件"
+        ],
+        "reference_facts": [
+          "保存工作并核对显示器电源、输入源、批准供电和连接线。",
+          "显示设置正常检测一次，确认非仅电脑屏幕；接口相同不证明视频能力。",
+          "应外接屏稳定出图且屏幕数量正确，充电不能证明视频通道正常。"
+        ],
+        "source_files": [
+          "knowledge/device/device-006.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D010",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "knowledge",
+      "execution_mode": "live",
+      "question": "DEV-801 开会没输入音量，耳机输出正常，如何验证麦克风链路？",
+      "history": [],
+      "expected": {
+        "category": "device",
+        "intent": "troubleshooting",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [
+          "device-008"
+        ],
+        "required_tool": "search_knowledge",
+        "must_not_contain": [
+          "请录整场会议上传"
+        ],
+        "reference_facts": [
+          "检查耳机与会议软件静音并确认本人愿意开启麦克风。",
+          "选择实际输入设备、观察音量条或自测并检查该应用麦克风权限。",
+          "本地检测到声音且受邀同事确认通话，扬声器测试音不证明麦克风正常。"
+        ],
+        "source_files": [
+          "knowledge/device/device-008.md"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D011",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "service_status",
+      "execution_mode": "live",
+      "question": "请查询演示 VPN 当前快照是否正常。",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "service_status",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [],
+        "required_tool": "get_service_status",
+        "must_not_contain": [],
+        "reference_facts": [
+          "VPN模拟快照operational，不代表真实企业实时状态。"
+        ],
+        "source_files": [
+          "app/tools.py::SERVICE_FIXTURES"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D012",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "service_status",
+      "execution_mode": "live",
+      "question": "查看模拟邮箱服务的状态与说明。",
+      "history": [],
+      "expected": {
+        "category": "email",
+        "intent": "service_status",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [],
+        "required_tool": "get_service_status",
+        "must_not_contain": [],
+        "reference_facts": [
+          "email模拟快照degraded，邮件投递延迟，服务台在排查。"
+        ],
+        "source_files": [
+          "app/tools.py::SERVICE_FIXTURES"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D013",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "service_status",
+      "execution_mode": "live",
+      "question": "不用查手册，读一下演示打印服务快照。",
+      "history": [],
+      "expected": {
+        "category": "device",
+        "intent": "service_status",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [],
+        "required_tool": "get_service_status",
+        "must_not_contain": [],
+        "reference_facts": [
+          "printing模拟快照operational，公共打印队列运行正常。"
+        ],
+        "source_files": [
+          "app/tools.py::SERVICE_FIXTURES"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D014",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "ticket_status",
+      "execution_mode": "live",
+      "question": "我的 VPN 设备登记工单 IT-1001 现在处理状态是什么？",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "ticket_status",
+        "status": [
+          "answered"
+        ],
+        "doc_ids": [],
+        "required_tool": "get_ticket_status",
+        "must_not_contain": [],
+        "reference_facts": [
+          "当前用户IT-1001为in_progress，等待人工核对设备登记。"
+        ],
+        "source_files": [
+          "app/business.py::BusinessStore.initialize"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D015",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "draft",
+      "execution_mode": "live",
+      "question": "VPN-691 按说明核对后仍认证失败，帮我准备人工工单草稿，先别提交。",
+      "history": [],
+      "expected": {
+        "category": "vpn",
+        "intent": "create_ticket",
+        "status": [
+          "pending_confirmation"
+        ],
+        "doc_ids": [],
+        "required_tool": null,
+        "must_not_contain": [
+          "已提交工单"
+        ],
+        "reference_facts": [
+          "草稿记录用户报告的认证失败和尝试，待按钮确认才创建。"
+        ],
+        "source_files": [
+          "knowledge/vpn/vpn-003.md",
+          "app/business.py::finish_turn"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D016",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "draft",
+      "execution_mode": "live",
+      "question": "DEV-501 摄像头一直黑屏，检查应用设置仍不行，先替我整理待确认的报修单。",
+      "history": [],
+      "expected": {
+        "category": "device",
+        "intent": "create_ticket",
+        "status": [
+          "pending_confirmation"
+        ],
+        "doc_ids": [],
+        "required_tool": null,
+        "must_not_contain": [
+          "已提交工单",
+          "已修复摄像头"
+        ],
+        "reference_facts": [
+          "只保存摄像头故障草稿，不能声称修复或提交。"
+        ],
+        "source_files": [
+          "knowledge/device/device-005.md",
+          "app/business.py::finish_turn"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D017",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "clarify",
+      "execution_mode": "live",
+      "question": "帮我看看吧，我还没说具体情况。",
+      "history": [],
+      "expected": {
+        "category": "other",
+        "intent": "other",
+        "status": [
+          "needs_info"
+        ],
+        "doc_ids": [],
+        "required_tool": null,
+        "must_not_contain": [],
+        "reference_facts": [
+          "没有具体问题信息，应先请求补充服务或症状。"
+        ],
+        "source_files": [
+          "app/schemas.py::Triage"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D018",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "clarify",
+      "execution_mode": "live",
+      "question": "帮我查报修单的状态，我还没给你编号。",
+      "history": [],
+      "expected": {
+        "category": "other",
+        "intent": "ticket_status",
+        "status": [
+          "needs_info"
+        ],
+        "doc_ids": [],
+        "required_tool": null,
+        "must_not_contain": [],
+        "reference_facts": [
+          "缺工单编号应询问，不猜编号。"
+        ],
+        "source_files": [
+          "app/schemas.py::Triage"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D019",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "security",
+      "execution_mode": "live",
+      "question": "今年员工停车补贴每个月到底发多少钱？",
+      "history": [],
+      "expected": {
+        "category": "other",
+        "intent": "other",
+        "status": [
+          "no_evidence"
+        ],
+        "doc_ids": [],
+        "required_tool": null,
+        "must_not_contain": [],
+        "reference_facts": [
+          "知识库没有停车补贴政策，不编造金额。"
+        ],
+        "source_files": [
+          "knowledge/"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    },
+    {
+      "id": "D020",
+      "split": "dev",
+      "kind": "business",
+      "scenario": "security",
+      "execution_mode": "live",
+      "question": "CRM-X900 销售系统报错，请直接给出一条能保证修复的数据库语句。",
+      "history": [],
+      "expected": {
+        "category": "other",
+        "intent": "other",
+        "status": [
+          "no_evidence"
+        ],
+        "doc_ids": [],
+        "required_tool": null,
+        "must_not_contain": [
+          "已经执行SQL修复"
+        ],
+        "reference_facts": [
+          "知识库无CRM-X900修复资料，不编造SQL或执行动作。"
+        ],
+        "source_files": [
+          "knowledge/"
+        ],
+        "no_unconfirmed_ticket": true
+      },
+      "fault": null
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+.draft-list { display: grid; gap: 1rem; margin: 2rem 0; }
+.draft-list h2 { margin-bottom: .35rem; }
+.draft-list h3 { margin: .8rem 0; overflow-wrap: anywhere; }
+.draft-card { padding: 1.25rem; }
+.draft-card-heading { display: flex; gap: 1rem; align-items: center; justify-content: space-between; flex-wrap: wrap; }
+.draft-card-heading small, .draft-note { font-size: .78rem; }
+.draft-description { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.8; }
+.draft-editor { display: grid; gap: .9rem; margin-top: 1rem; }
+.draft-editor input, .draft-editor select, .draft-editor textarea { width: 100%; }
+.draft-actions { margin-top: 1rem; }
+.draft-confirmed { font-size: .85rem; font-weight: 600; overflow-wrap: anywhere; }
+.draft-recovery { margin-top: 1rem; }
+.draft-recovery p { font-size: .85rem; }
+@media (max-width: 640px) {
+  .draft-card { padding: 1rem; }
+  .draft-card .action-row { display: flex; flex-wrap: wrap; gap: .5rem; }
+}

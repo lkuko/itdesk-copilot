@@ -1,0 +1,27 @@
+.venv/
+.env
+.env.*
+!.env.example
+/data/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.streamlit/secrets.toml
+/work/
+/frontend/node_modules/
+/frontend/dist/
+/frontend/coverage/
+/frontend/playwright-report/
+/frontend/test-results/
+/frontend/*.tsbuildinfo
+
+# Local evidence and screenshots from development runs are not release assets.
+/docs/evidence/
+/docs/screenshots/*
+!/docs/screenshots/chat-desktop.png
+!/docs/screenshots/chat-mobile.png
+!/docs/screenshots/knowledge-workspace.png
+!/docs/screenshots/knowledge-mobile.png
+!/docs/screenshots/tickets-desktop.png

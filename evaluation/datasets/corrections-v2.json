@@ -1,0 +1,36 @@
+{
+  "schema_version": 2,
+  "record_type": "forward_evaluation_errata_not_replacement_of_frozen_v1",
+  "recorded_at": "2026-11-17T13:40:06.910331+00:00",
+  "base_dataset": "acceptance.json",
+  "base_dataset_sha256": "6fc46bf363ebca56068ee953c9c27e861089e9462fa85482756fde14db351709",
+  "historical_results_policy": "Keep week3 frozen data, raw results, manifests and reports unchanged. Corrections apply only when explicitly copied into a separately frozen week4 or later dataset. This file is not an automatic overlay on acceptance.json.",
+  "corrections": [
+    {
+      "case_id": "A009",
+      "kind": "gold_reference_fact",
+      "source_file": "knowledge/email/email-001.md",
+      "source_sha256": "25a487a0d097f32049c23d8e6af3c636044bc6857d5000398c641d3d2eb14f12",
+      "field": "expected.reference_facts[1]",
+      "old_value": "近期改密且仅桌面端异常时按官方账号管理清理失效登录记录。",
+      "corrected_value": "确认是否近期改过密码；若只有桌面客户端失败，在其官方账号设置中重新完成登录，不在聊天中提供密码。",
+      "reason": "原金标把官方账号设置重新登录概括为清理失效登录记录，超出手册原文；不要求删除或清理记录。"
+    },
+    {
+      "case_id": "A55",
+      "kind": "fault_coverage_alignment",
+      "unchanged_gold_source": "app/business.py::finish_turn",
+      "old_execution": "sqlite_write_failure previously inserted a trigger on ticket_confirmed audit while confirming an already persisted draft; it checked confirm_draft rollback, not the question's finish_turn failure.",
+      "corrected_execution": "sqlite_write_failure now aborts assistant message INSERT inside finish_turn, after draft and draft audit INSERTs; verifies no draft, assistant reply, draft audit or completed request survives.",
+      "additional_fault": "confirm_write_failure retains the former confirmation audit failure as a separate named scenario, callable through execute_fault without adding it to the frozen 60-case v1 dataset.",
+      "reason": "使新运行的故障注入位置与题面一致，并分别保留草稿保存与确认事务两条回滚证据；第三周旧结果仅证明确认事务。"
+    },
+    {
+      "case_id": "A039",
+      "kind": "mechanical_measurement_revision",
+      "old_execution": "A literal substring in a safe negated statement caused an automatic forbidden_claims failure.",
+      "corrected_execution": "Mechanical contract v2 moves every literal match into risk_signals with context and requires semantic review; matches no longer independently decide mechanical pass or unsafe_claim.",
+      "reason": "字符串只能定位可能风险，不能区分否定、引用、双重否定或实际建议；新机械成绩不直接与第三周旧机械成绩当作质量改善比较。"
+    }
+  ]
+}

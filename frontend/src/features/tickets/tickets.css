@@ -1,0 +1,13 @@
+.tickets-page { max-width: 850px; width: 100%; margin: 1rem auto; }
+.tickets-heading { display: flex; gap: 1rem; justify-content: space-between; align-items: start; margin-bottom: 1.8rem; }
+.ticket-card { padding: 1.2rem; margin-bottom: 1rem; }
+.ticket-card-heading { display: flex; gap: .8rem; justify-content: space-between; align-items: center; }
+.ticket-id { font-size: .82rem; font-weight: 600; overflow-wrap: anywhere; }
+.ticket-card h2 { font-size: 1.08rem; margin: .9rem 0; overflow-wrap: anywhere; }
+.ticket-meta { display: flex; gap: .5rem 1rem; flex-wrap: wrap; font-size: .78rem; }
+.ticket-card details { margin-top: 1rem; }
+.ticket-card summary { cursor: pointer; font-size: .83rem; padding: .4rem 0; }
+.ticket-description { white-space: pre-wrap; overflow-wrap: anywhere; line-height: 1.85; font-size: .9rem; }
+.ticket-pagination { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; margin: 1.2rem 0; }
+.ticket-footnote { font-size: .75rem; line-height: 1.8; }
+@media (max-width: 640px) { .tickets-heading { flex-direction: column; } }
